@@ -32,3 +32,4 @@ Does Socials Button Redirect To Facebook
     [Documentation]     This is a test case where I click on the facebook logo on the top-nav bar, and I should be redirected to the facebook page of GGBG
     open browser        ${ggbg-home-page}   ${browser}
     Socials.does socials redirect
+    Close Browser

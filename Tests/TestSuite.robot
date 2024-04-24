@@ -14,7 +14,7 @@ Sample Webdriver
         [Tags]  wd0
         [Documentation]  Sample invocation using WD
         open browser    https://www.facebook.com/   ${browser}
-        close all browsersÍ
+        close all browsers
 
 Basic Search
     [Tags]    wd2
