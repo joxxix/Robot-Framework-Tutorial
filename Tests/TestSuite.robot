@@ -1,5 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
+Library     RequestsLibrary
 Resource    ../PageObjects/LoginPage.robot
 Resource    ../PageObjects/Socials.robot
 
@@ -13,7 +14,7 @@ Sample Webdriver
         [Tags]  wd0
         [Documentation]  Sample invocation using WD
         open browser    https://www.facebook.com/   ${browser}
-        close all browsers
+        close all browsersÍ
 
 Basic Search
     [Tags]    wd2
@@ -44,3 +45,11 @@ Get Specifc Atribute Name
     log    The thing I was searching for was: ${id}
     should not be equal    //*[@class='srp-controls__count-heading']/span[2]     Mobile
     close browser
+
+Quick Get Request Test
+      [Tags]    back
+      ${response}=    GET  https://www.google.com
+
+Quick Get Request With Parameters Test
+      [Tags]    back
+      ${response}=    GET  https://www.google.com/search  params=query=ciao  expected_status=200
