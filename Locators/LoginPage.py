@@ -1,0 +1,6 @@
+emailInputForLogin = "xpath:(//input[@name='email'])[1]"
+passwordInputForLogin = "xpath:(//input[@name='password'])[1]"
+userDetailsTitleText = "xpath:(//h3[@class='tbk__title'])[5]"
+loginRegisterButton = "xpath://*[@class='topnav-item--text']"
+loginButton = "xpath://input[@name='login']"
+invalidEmailOrPasswordMessage = "xpath://*[@class='kl-store-error']"
