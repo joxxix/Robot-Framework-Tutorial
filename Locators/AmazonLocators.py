@@ -1,0 +1,1 @@
+firstElementInSearchResult = "xpath:(//div[@class='puis-card-container s-card-container s-overflow-hidden aok-relative puis-expand-height puis-include-content-margin puis puis-vdxk37aq8336s2lo8m9ejy9mry s-latency-cf-section puis-card-border'])"
