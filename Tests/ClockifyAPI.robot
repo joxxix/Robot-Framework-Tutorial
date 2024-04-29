@@ -1,5 +1,7 @@
 *** Settings ***
 Library     RequestsLibrary
+Library     JSONLibrary
+Library     Collections
 
 *** Keywords ***
 
@@ -23,7 +25,14 @@ Current User Info And Workspace Is Valid
 
 Current User Info Is Valid
       [Tags]    clocky
-      &{headers}     Create Dictionary    X-API-KEY=${X-Api-Key}
-      Log To Console    ${headers}
+      &{headers}     Create Dictionary    Content-Type=application/json    X-API-KEY=${X-Api-Key}
+
       Create Session   alias=my-session  url=${get-curr-user-info-endpoint}
       ${response}=    GET     url=${get-curr-user-info-endpoint}${user-end-point}  expected_status=200   headers=${headers}
+      
+      Should Have Value In Json  ${response.json()}    name
+
+      ${json-name}    Get Value From Json    json_object=${response.json()}    json_path=name
+      Should Be Equal    ${json-name}[0]    Nikolay Hristov
+
+
