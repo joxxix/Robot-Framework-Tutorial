@@ -15,6 +15,6 @@ Finish Test Case
 Click The Specified Element From Search Result    
     [Documentation]    Element placement starts from 1 to 60 for a page
     [Arguments]    ${element-placement}
-    ${xpath-for-the-image-for-the-specific-element}=    Convert To String    //div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_${element-placement}']//div[@class='s-product-image-container aok-relative s-text-center s-image-overlay-grey puis-image-overlay-grey s-padding-left-small s-padding-right-small puis-spacing-small s-height-equalized puis puis-vdxk37aq8336s2lo8m9ejy9mry']
+    ${xpath-for-the-image-for-the-specific-element}=    Convert To String    //div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_${element-placement}']
     Wait Until Element Is Visible    ${xpath-for-the-image-for-the-specific-element}
-    Click Element    ${xpath-for-the-image-for-the-specific-element}
+    Click Element    (//div[@data-component-type='s-search-result'])[${element-placement}]//div[@class='a-section aok-relative s-image-square-aspect']
