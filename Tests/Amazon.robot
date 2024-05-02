@@ -7,9 +7,6 @@ Variables   ../Locators/AmazonLocators.py
 Test Teardown    AmazonCommons.Finish Test Case
 
 *** Variables ***
-# landing page
-${xpath-for-search-bar-from-landingpage}    //input[@id='twotabsearchtextbox']
-${xpath-for-search-submit-button}    //input[@id='nav-search-submit-button']
 # PDP = product display page
 ${xpath-for-quantity-select}    //div[@id='selectQuantity']
 ${xpath-for-second-quantity-from-dropdown-menu}    //li[@aria-labelledby='quantity_1']
@@ -48,30 +45,15 @@ Buy 2 hats from amazon.com
     ...    Captcha was too hard!
     # step 3
     # search for "hats for men"
-    Input Text    ${xpath-for-search-bar-from-landingpage}    hats for men
-    Click Button    ${xpath-for-search-submit-button}
+    AmazonCommons.Search For An Item    hats for men
     
     AmazonCommons.Click The Specified Element From Search Result    1
     # click on quantity change to two
-    # clicking on quantity
-    Wait Until Element Is Visible    ${xpath-for-quantity-select}
-    Click Element    ${xpath-for-quantity-select}
-
-    # changing value to two
-    Wait Until Element Is Visible    ${xpath-for-second-quantity-from-dropdown-menu}
-    Click Element    ${xpath-for-second-quantity-from-dropdown-menu}
-
-    # verify that quantity has changed
-    Wait Until Element Is Visible     ${xpath-for-set-quantity-drop-down}
-    Element Text Should Be  ${xpath-for-set-quantity-drop-down}    2
+    # clicking on quantity and change it to 2
+    AmazonCommons.Set Quantity Of The Item To 2
 
     # click on add to cart button
-    Wait Until Element Is Visible  ${xpath-for-add-to-cart-button-in-PDP}
-    Click Button    ${xpath-for-add-to-cart-button-in-PDP}
-
-    # verify that "Added to Cart" text exists and that you are on amazon.com/cart
-    Location Should Contain    amazon.com/cart
-    Wait Until Element Is Visible    //h1[normalize-space()='Added to Cart']
+    AmazonCommons.Add Item To Cart
 
     # step 4
     # go to cart from 'go to cart' button on success page
